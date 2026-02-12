@@ -1,0 +1,23 @@
+# =========================
+# Ignore user assets
+# =========================
+# assets/data/
+# assets/img/
+
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/
+
+# IntelliJ / WebStorm
+.idea/
+
+# =========================
+# Logs
+# =========================
+*.log
