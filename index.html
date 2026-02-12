@@ -6,21 +6,24 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>test</title>
+  <title>Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- 한글 지원 폰트 추가 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <!-- Loading Screen -->
-  <div class="loading-screen">
+  <!-- <div class="loading-screen">
     <div class="loading-text">Loading Portfolio...</div>
     <div class="loading-bar">
       <div class="loading-progress"></div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Background Animation -->
   <div class="bg-animation">
@@ -57,14 +60,14 @@
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <h1 class="hero-title">꾸준히 성장하는 개발자</h1>
-      <p class="hero-subtitle">책임감을 가지고 주체적으로 일하는 개발자 이승환입니다</p>
+      <h1 class="hero-title">Creative Developer</h1>
+      <p class="hero-subtitle">Building the future, one line at a time</p>
       <div class="hero-cta">
         <button class="btn" onclick="scrollToSection('projects')">
-          <i class="fas fa-folder-open"></i> 프로젝트 보기
+          <i class="fas fa-folder-open"></i> View Projects
         </button>
         <button class="btn btn-secondary" onclick="scrollToSection('contact')">
-          <i class="fas fa-envelope"></i> 연락하기
+          <i class="fas fa-envelope"></i> Get in Touch
         </button>
       </div>
     </div>
@@ -107,15 +110,15 @@
       <form class="contact-form" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label class="form-label">Name</label>
-          <input type="text" class="form-input" required />
+          <input type="text" name="name" class="form-input" required />
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input type="email" class="form-input" required />
+          <input type="email" name="email" class="form-input" required />
         </div>
         <div class="form-group">
           <label class="form-label">Message</label>
-          <textarea class="form-textarea" required></textarea>
+          <textarea name="message" class="form-textarea" required></textarea>
         </div>
         <button type="submit" class="submit-btn">
           <i class="fas fa-paper-plane"></i> Send Message
@@ -125,385 +128,37 @@
   </section>
 
   <!-- Footer -->
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
+  <footer>
+    <div class="footer-content">
+      <!-- Footer Top -->
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Portfolio</div>
+          <p class="footer-tagline"><!-- Loaded from data.js --></p>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="social-links">
+          <!-- Loaded from data.js -->
+        </div>
+      </div>
 
-    <!-- Social Links -->
-    <div class="social-links">
+      <!-- Footer Divider -->
+      <div class="footer-divider"></div>
 
-      <a href="https://github.com/naxa-dev" target="_blank" class="social-link">
-        <i class="fab fa-github"></i>
-      </a>
-
-      <a href="https://www.naxa.dev" target="_blank" class="social-link">
-        <i class="fas fa-globe"></i>
-      </a>
-
-      <a href="https://www.youtube.com/@Naxa_dev" target="_blank" class="social-link">
-        <i class="fab fa-youtube"></i>
-      </a>
-
-      <a href="https://www.instagram.com/naxa.dev/" target="_blank" class="social-link">
-        <i class="fab fa-instagram"></i>
-      </a>
-
-      <a href="https://open.kakao.com/me/Naxa" target="_blank" class="social-link">
-        <i class="fas fa-comment"></i>
-      </a>
-
-      <a href="mailto:seunghwan94.dev@gmail.com" class="social-link">
-        <i class="fas fa-envelope"></i>
-      </a>
-
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-text">
+          <!-- Loaded from data.js -->
+        </div>
+      </div>
     </div>
+  </footer>
 
-    <!-- Download Section -->
-    <div style="margin-top:20px; text-align:center;">
-
-      <a href="./assets/data/seunghwan_work_experience.docx" 
-         download 
-         class="project-link secondary">
-        <i class="fas fa-file-word"></i> 경력증명서 다운로드
-      </a>
-
-      &nbsp;&nbsp;
-
-      <a href="./assets/data/더좋은아카데미_수료증(구로).pdf" 
-         download 
-         class="project-link secondary">
-        <i class="fas fa-file-pdf"></i> 수료증 다운로드
-      </a>
-
-    </div>
-
-    <div class="footer-text" style="margin-top:20px;">
-      © 2026 Portfolio • Designed & Developed by Seunghwan Lee
-    </div>
-
-  </div>
-</footer>
-
-
-  <!-- ✅ 1) 데이터 파일 먼저 로드 -->
+  <!-- 데이터 파일 먼저 로드 -->
   <script src="data.js"></script>
 
-  <!-- ✅ 2) 기존 스크립트(로직) -->
-  <script>
-    // ===== DATA FROM data.js =====
-    const { skills: skillsData, projects: projectsData, timeline: timelineData } = window.PORTFOLIO_DATA;
-
-    // ===== INITIALIZATION FUNCTIONS =====
-
-    // Load Skills
-    function loadSkills() {
-      const container = document.getElementById('skillsContainer');
-      container.innerHTML = skillsData.map(skill => `
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="${skill.icon}"></i>
-          </div>
-          <div class="skill-name">${skill.name}</div>
-          <p class="skill-description">${skill.description}</p>
-          <div class="skill-bar">
-            <div class="skill-progress" data-progress="${skill.progress}"></div>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    // Load Projects
-    let currentRotation = 0;
-    const carousel = document.getElementById('carousel');
-    const scrollIndicators = document.getElementById('scrollIndicators');
-    let angleStep = 0;
-
-    function loadProjects() {
-      angleStep = 360 / projectsData.length;
-      carousel.innerHTML = '';
-      scrollIndicators.innerHTML = '';
-      const isMobile = window.innerWidth <= 768;
-
-      // 모바일용 인디케이터
-      if (isMobile) {
-        projectsData.forEach((_, index) => {
-          const dot = document.createElement('div');
-          dot.className = 'scroll-dot';
-          if (index === 0) dot.classList.add('active');
-          scrollIndicators.appendChild(dot);
-        });
-      }
-
-      projectsData.forEach((project, index) => {
-        const card = document.createElement('div');
-        card.className = 'project-card';
-        card.setAttribute('data-index', index);
-
-        if (!isMobile) {
-          card.style.transform = `
-            translateX(-50%) translateY(-50%)
-            rotateY(${angleStep * index}deg)
-            translateZ(600px)
-          `;
-        }
-
-        const frontHTML = `
-          <div class="card-face card-front">
-            <div class="project-image">
-              ${project.image
-                ? `<img src="${project.image}" alt="${project.title}">`
-                : `<i class="${project.icon}"></i>`
-              }
-            </div>
-            <div class="card-content">
-              <h3 class="project-title">${project.title}</h3>
-              <p class="project-desc">${project.description}</p>
-              <div class="tech-tags">
-                ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-              </div>
-            </div>
-          </div>
-        `;
-
-        const backHTML = `
-          <div class="card-face card-back">
-            <h3 class="back-title">${project.title}</h3>
-
-            <div class="project-details">
-              ${Object.entries(project.details).map(([key, value]) => `
-                <div class="detail-item">
-                  <i class="fas fa-check-circle"></i>
-                  <div>
-                    <strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong>
-                    <span>${value}</span>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-
-            <div class="project-stats">
-              ${Object.entries(project.stats).map(([key, value]) => `
-                <div class="stat-item">
-                  <div class="stat-number">${value}</div>
-                  <div class="stat-label">${key.toUpperCase()}</div>
-                </div>
-              `).join('')}
-            </div>
-
-            <div class="project-details">
-              <div class="detail-item" style="margin-bottom: 0.5rem;">
-                <i class="fas fa-star"></i>
-                <strong>Key Features</strong>
-              </div>
-              ${project.features.map(feature => `
-                <div class="detail-item">
-                  <i class="fas fa-angle-right"></i>
-                  <span>${feature}</span>
-                </div>
-              `).join('')}
-            </div>
-
-            <div class="project-links">
-              ${project.links.github
-                ? `<a href="${project.links.github}" target="_blank" class="project-link secondary">
-                    <i class="fab fa-github"></i> GitHub
-                  </a>`
-                : ''
-              }
-              ${project.links.demo
-                ? `<a href="${project.links.demo}" target="_blank" class="project-link">
-                    <i class="fas fa-external-link-alt"></i> Demo
-                  </a>`
-                : ''
-              }
-              ${project.links.download
-                ? `<a href="${project.links.download}" download class="project-link secondary">
-                    <i class="fas fa-download"></i> Download
-                  </a>`
-                : ''
-              }
-            </div>
-          </div>
-        `;
-
-        card.innerHTML = `<div class="card-inner">${frontHTML}${backHTML}</div>`;
-
-        card.addEventListener('click', function (e) {
-          if (!e.target.closest('.project-link')) {
-            this.classList.toggle('flipped');
-          }
-        });
-
-        carousel.appendChild(card);
-      });
-    }
-
-    // Load Timeline
-    function loadTimeline() {
-      const container = document.getElementById('timelineContainer');
-      container.innerHTML = timelineData.map(item => `
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">${item.date}</div>
-            <h3 class="timeline-title">${item.title}</h3>
-            <p class="timeline-desc">${item.description}</p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
-      `).join('');
-    }
-
-    // ===== CAROUSEL FUNCTIONS =====
-    function rotateCarousel(direction) {
-      const isMobile = window.innerWidth <= 768;
-
-      if (isMobile) {
-        const firstCard = carousel.querySelector('.project-card');
-        if (!firstCard) return;
-        const scrollAmount = firstCard.offsetWidth + 24;
-        carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-      } else {
-        currentRotation += angleStep * direction;
-        carousel.style.transform = `rotateY(${currentRotation}deg)`;
-      }
-    }
-
-    // Touch/Swipe + Mobile Indicator
-    (function setupCarouselInput() {
-      let touchStartX = 0, touchStartY = 0;
-      let touchEndX = 0, touchEndY = 0;
-      const swipeThreshold = 50;
-
-      carousel.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-        touchStartY = e.changedTouches[0].screenY;
-      }, { passive: true });
-
-      carousel.addEventListener('touchmove', e => {
-        const touchMoveX = e.changedTouches[0].screenX;
-        const touchMoveY = e.changedTouches[0].screenY;
-        const diffX = Math.abs(touchMoveX - touchStartX);
-        const diffY = Math.abs(touchMoveY - touchStartY);
-
-        // 데스크탑/태블릿(3D)에서 가로 스와이프만 막기
-        if (window.innerWidth > 768 && diffX > diffY) e.preventDefault();
-      }, { passive: false });
-
-      carousel.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        touchEndY = e.changedTouches[0].screenY;
-
-        const diffX = touchStartX - touchEndX;
-        const diffY = Math.abs(touchStartY - touchEndY);
-
-        if (window.innerWidth > 768 && Math.abs(diffX) > diffY) {
-          if (diffX > swipeThreshold) rotateCarousel(1);
-          if (diffX < -swipeThreshold) rotateCarousel(-1);
-        }
-      }, { passive: true });
-
-      // 모바일: 스크롤 인디케이터
-      carousel.addEventListener('scroll', () => {
-        if (window.innerWidth > 768) return;
-        const card = carousel.querySelector('.project-card');
-        if (!card) return;
-
-        const cardWidth = card.offsetWidth;
-        const gap = 24;
-        const currentIndex = Math.round(carousel.scrollLeft / (cardWidth + gap));
-
-        document.querySelectorAll('.scroll-dot').forEach((dot, index) => {
-          dot.classList.toggle('active', index === currentIndex);
-        });
-      });
-    })();
-
-    // Keyboard Navigation
-    document.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft') rotateCarousel(-1);
-      if (e.key === 'ArrowRight') rotateCarousel(1);
-    });
-
-    // ===== UTILITY FUNCTIONS =====
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function toggleNav() {
-      document.getElementById('nav').classList.toggle('active');
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
-      const icon = document.querySelector('.theme-toggle i');
-      icon.className = document.body.classList.contains('light-theme') ? 'fas fa-sun' : 'fas fa-moon';
-    }
-
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert("Thank you for your message! I'll get back to you soon. 🚀");
-      e.target.reset();
-    }
-
-    // Scroll Animations
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-
-          if (entry.target.classList.contains('skills-section')) {
-            document.querySelectorAll('.skill-progress').forEach(bar => {
-              const progress = bar.getAttribute('data-progress');
-              setTimeout(() => { bar.style.width = progress + '%'; }, 200);
-            });
-          }
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Smooth Scroll for Navigation
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = this.getAttribute('href');
-        document.querySelector(target).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        document.getElementById('nav').classList.remove('active');
-      });
-    });
-
-    // Loading Screen
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.querySelector('.loading-screen').classList.add('hidden');
-      }, 1500);
-    });
-
-    // Initialize Everything
-    window.addEventListener('DOMContentLoaded', () => {
-      loadSkills();
-      loadProjects();
-      loadTimeline();
-    });
-
-    // 윈도우 리사이즈 시 카루셀 재로드
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        loadProjects();
-      }, 250);
-    });
-
-    // Parallax Effect
-    document.addEventListener('mousemove', e => {
-      const moveX = (e.clientX - window.innerWidth / 2) / 50;
-      const moveY = (e.clientY - window.innerHeight / 2) / 50;
-
-      document.querySelector('.bg-gradient').style.transform = `translate(${moveX}px, ${moveY}px)`;
-    });
-  </script>
+  <!-- 메인 스크립트 -->
+  <script src="script.js"></script>
 </body>
 </html>
