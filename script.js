@@ -185,17 +185,54 @@ function loadProjects() {
 function loadTimeline() {
   const container = document.getElementById('timelineContainer');
   container.innerHTML = timelineData.map(item => `
-    <div class="timeline-item">
+    <div class="timeline-item" onclick="this.classList.toggle('flipped')">
       <div class="timeline-content">
-        <div class="timeline-date">${item.date}</div>
-        <h3 class="timeline-title">${item.title}</h3>
-        <p class="timeline-desc">${item.description}</p>
-        ${item.download ? `
-          <a href="${item.download.url}" download class="timeline-download">
-            <i class="${item.download.icon}"></i>
-            ${item.download.label} 다운로드
-          </a>
-        ` : ''}
+        <div class="timeline-card-inner">
+          <!-- Front -->
+          <div class="timeline-card-front">
+            <div class="timeline-date">${item.date}</div>
+            <h3 class="timeline-title">${item.title}</h3>
+            <p class="timeline-desc">${item.description}</p>
+            ${item.download ? `
+              <a href="${item.download.url}" download class="timeline-download" onclick="event.stopPropagation()">
+                <i class="${item.download.icon}"></i>
+                ${item.download.label} 다운로드
+              </a>
+            ` : ''}
+            ${item.details ? `
+              <div class="timeline-flip-hint">
+                <i class="fas fa-info-circle"></i>
+                클릭하여 상세 경력 보기
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- Back -->
+          ${item.details ? `
+            <div class="timeline-card-back">
+              <div class="timeline-date">${item.date}</div>
+              <h3 class="timeline-detail-title">
+                <i class="fas fa-list-check"></i>
+                주요 업무 및 성과
+              </h3>
+              <ul class="timeline-detail-list">
+                ${item.details.map(detail => `
+                  <li class="timeline-detail-item">${detail}</li>
+                `).join('')}
+              </ul>
+              ${item.download ? `
+                <a href="${item.download.url}" download class="timeline-download" onclick="event.stopPropagation()" style="margin-top: 1rem;">
+                  <i class="${item.download.icon}"></i>
+                  ${item.download.label} 다운로드
+                </a>
+              ` : ''}
+              <div class="timeline-flip-hint" style="margin-top: 1rem;">
+                <i class="fas fa-rotate-left"></i>
+                클릭하여 돌아가기
+              </div>
+            </div>
+          ` : ''}
+        </div>
       </div>
       <div class="timeline-dot"></div>
     </div>

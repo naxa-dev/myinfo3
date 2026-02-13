@@ -828,6 +828,7 @@ nav a:hover::after {
     display: flex;
     margin-bottom: 4rem;
     position: relative;
+    perspective: 1000px;
 }
 
 .timeline-item:nth-child(even) {
@@ -843,12 +844,109 @@ nav a:hover::after {
     backdrop-filter: blur(10px);
     position: relative;
     transition: all 0.3s ease;
+    cursor: pointer;
+    transform-style: preserve-3d;
 }
 
 .timeline-content:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
     box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+/* Timeline Card Flip */
+.timeline-card-inner {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.timeline-item.flipped .timeline-card-inner {
+    transform: rotateY(180deg);
+}
+
+.timeline-card-front,
+.timeline-card-back {
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.timeline-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+/* 뒷면 스크롤바 */
+.timeline-card-back::-webkit-scrollbar {
+    width: 4px;
+}
+
+.timeline-card-back::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.timeline-card-back::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+.timeline-card-back::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+.timeline-detail-title {
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.timeline-detail-list {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-detail-item {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.timeline-detail-item::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.timeline-flip-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--primary);
+    margin-top: 0.5rem;
+    opacity: 0.8;
+}
+
+.timeline-flip-hint i {
+    font-size: 0.688rem;
 }
 
 .timeline-date {
@@ -1416,6 +1514,14 @@ body.light-theme .timeline-download {
     .timeline-content {
         width: calc(100% - 60px);
         margin-left: 60px;
+    }
+
+    .timeline-card-back {
+        max-height: 350px;
+    }
+
+    .timeline-flip-hint {
+        font-size: 0.688rem;
     }
 
     .timeline-dot {

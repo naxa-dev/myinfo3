@@ -252,52 +252,121 @@ window.PORTFOLIO_DATA = {
   ],
 
   // 경력 부분 (위에서 아래)
+  // 경력 부분 (위에서 아래)
+  // 경력 부분 (위에서 아래)
   timeline: [
     {
       date: "2025.05 ~ 진행중",
       title: "(주)위즈베라 - 솔루션 엔지니어",
       description:
-        "Delfino/Veraport 기반 금융·공공기관 전자서명 및 보안 솔루션 기술지원. PKCS#7 서명 검증 구조 분석, Nonce 기반 Replay Attack 방지 로직 구현, WebSocket 브라우저-로컬모듈 양방향 통신 아키텍처 설계. Tomcat/JEUS/WebLogic WAS 환경별 트러블슈팅, Linux(CentOS/Ubuntu) 로그 분석 자동화 스크립트 작성. 고객사 장애 발생 시 30분 이내 원인 파악 및 핫픽스 배포 경험 다수. OpenSSL 기반 인증서 체인 검증 로직 최적화로 서명 검증 속도 40% 개선."
+        "Delfino/Veraport 금융·공공기관 전자서명 솔루션 기술지원. Docker 기반 고객사별 테스트 환경 자동화로 구성 시간 83% 단축 (30분 → 5분), 이슈 재현/검증 속도 80% 향상. Python 기반 솔루션 일괄 제거 프로그램 개발로 월 10개 업체 정기점검 시간 60% 단축.",
+      details: [
+        "Docker Compose 기반 고객사별 환경 컨테이너화 및 자동 설치 스크립트 (start.bat) 개발",
+        "비개발자도 클릭 한 번으로 테스트 환경 구동 가능하도록 개선",
+        "Python 기반 통합설치 솔루션 제거 프로그램 개발 (정기점검 자동화)",
+        "PKCS#7 서명 검증 구조 분석 및 Nonce 기반 Replay Attack 방지 로직 구현",
+        "WebSocket 브라우저-로컬모듈 양방향 통신 아키텍처 설계",
+        "Tomcat/JEUS/WebLogic WAS 환경별 트러블슈팅 및 로그 분석",
+        "고객사 장애 발생 시 30분 이내 원인 파악 및 핫픽스 배포"
+      ]
     },
     {
-      date: "2025.01 ~ 2025.03 [AWS 풀스택 웹 앱 개발자 과정(6개월)]",
+      date: "2025.01 ~ 2025.03 [AWS 풀스택 웹 앱 개발자 과정]",
       title: "팀 프로젝트 - 가구의집 (팀장)",
       description:
-        "Spring Boot + React 기반 통합 인테리어 플랫폼 개발 (팀장 역할 수행). AWS 클라우드 인프라 설계부터 CI/CD 파이프라인 구축, Prometheus/Grafana 모니터링까지 DevOps 전 과정 주도. GitHub Actions 기반 자동 배포로 배포 시간 90% 단축 (수동 30분 → 자동 3분). JaCoCo 테스트 커버리지 80% 이상 달성. 3명 팀원 코드 리뷰 및 Git 브랜치 전략 수립. 결제/크롤링/이미지 분석 등 핵심 기능 직접 구현.",
+        "Spring Boot + React 통합 인테리어 플랫폼 개발 (팀장). AWS 인프라 설계 ~ CI/CD 구축 ~ Prometheus/Grafana 모니터링 전 과정 주도. GitHub Actions 자동 배포로 배포 시간 90% 단축 (30분 → 3분). JaCoCo 테스트 커버리지 80%+ 달성.",
       download: {
         icon: "fas fa-file-pdf",
         label: "수료증",
         url: "./assets/data/더좋은아카데미_수료증(구로).pdf"
-      }
+      },
+      details: [
+        "React + Bootstrap SCSS, Axios, Debounce 기반 프론트엔드 개발",
+        "Spring Boot: JPA + MyBatis 병행, Security(OAuth2/메일 인증), Swagger API 문서화",
+        "JaCoCo 테스트 커버리지 80% 이상 달성 (단위/통합 테스트)",
+        "Google Vision API 연동: 부적절한 이미지 자동 차단 시스템",
+        "IAMPORT(PortOne) 결제 연동 및 환불 처리 자동화",
+        "Selenium 기반 쿠팡 가구 데이터 크롤링 파이프라인 구축",
+        "AWS 인프라: EC2 + RDS + S3 + MongoDB 하이브리드 구성",
+        "Nginx Reverse Proxy + Cloudflare DNS + Let's Encrypt SSL 자동 갱신",
+        "GitHub Actions CI/CD: Docker 빌드/배포 + Discord 알림 (Blue-Green 전략)",
+        "Prometheus + Grafana 모니터링 대시보드 (API 응답시간, 리소스 추적)"
+      ]
     },
     {
-      date: "2024.07 ~ 2024.08",
-      title: "개인 프로젝트 - FaceReader / m/place / GeminiCook",
+      date: "2024.07 ~ 2025.12",
+      title: "개인 프로젝트 19종 개발 (PHP/Node/React/Vue/Python)",
       description:
-        "FaceReader: MediaPipe + GPT/Gemini API 기반 얼굴 특징점 468개 추출 및 AI 자동 해석 파이프라인 구축. m/place: Socket.io 실시간 픽셀 협업 보드 로컬 서버 운영 (CentOS + Docker + Nginx 환경 구성). GeminiCook: Gemini API 기반 레시피 추천 앱 개발 및 개발자 대회 출품. 3개 프로젝트 모두 GitHub 공개 및 문서화 완료."
+        "FaceReader (MediaPipe + GPT/Gemini 얼굴 특징점 468개 분석), m/place (Socket.io 실시간 픽셀 보드), GeminiCook (Gemini API 레시피 추천), Auto Stock2 (업비트 자동매매 - 추세추종+평균회귀 전략), Lotto Mate (Spring Security + React), Map Center (Tmap+Naver+Kakao 지도 API 통합).",
+      details: [
+        "FaceReader: MediaPipe 468개 랜드마크 추출 + GPT/Gemini 이중 AI 해석",
+        "m/place: Socket.io 실시간 협업 픽셀 보드 + 개인 서버 운영 (Docker + Nginx)",
+        "GeminiCook: Gemini API 레시피 추천 앱 개발 및 개발자 대회 출품",
+        "Auto Stock2: 업비트 자동매매 시스템 (추세추종 + 평균회귀 혼합 전략)",
+        "Lotto Mate: Spring Security + React 로또 추천 풀스택 서비스",
+        "Map Center: Tmap/Naver/Kakao 3개 지도 API 통합 중간지점 계산 서비스",
+        "Naxa Dev: PHP(CodeIgniter) 기반 개인 프로젝트 포트폴리오 사이트",
+        "Naxa Post: Node.js + Quill 에디터 기반 블로그/게시판 플랫폼",
+        "그 외 11종: 자동화 툴, 크롤링, AI 활용 프로젝트 (일부 상용/비공개)"
+      ]
     },
     {
       date: "2023.03 ~ 2024.06 [1년 3개월]",
       title: "(주)메이크봇 - 웹 개발자",
       description:
-        "대한항공/환경부/풀무원 등 공공·대기업 SI 프로젝트 유지보수 및 신규 개발. Session Timeout 이슈 해결로 사용자 불편 80% 감소. 비효율적인 SQL 쿼리 튜닝 (JOIN 최적화 + 인덱스 재설계)으로 API 응답 속도 평균 60% 개선. 레거시 JSP 코드베이스 리팩토링 (중복 코드 제거 + MVC 패턴 적용). 긴급 장애 대응 경험 다수 (24시간 내 핫픽스 배포). PHP CodeIgniter, Java Spring 기반 멀티 프로젝트 동시 관리.",
+        "대한항공/환경부/풀무원 등 공공·대기업 SI 프로젝트 유지보수 및 신규 개발. 세션 관리 개선으로 안정성 30% 향상. 로그 조회 쿼리 최적화로 조회 시간 75% 단축 (4~5분 → 1분). 주문 오류율 90% 감소.",
       download: {
         icon: "fas fa-file-word",
         label: "경력증명서",
         url: "./assets/data/seunghwan_work_experience.docx"
-      }
+      },
+      details: [
+        "대한항공 (1년 1개월): iOS 백그라운드 WebSocket 연결 유지 메커니즘 구현",
+        "세션 관리 로직 개선 및 통신 재연결 로직으로 시스템 안정성 30% 향상",
+        "로그 데이터 조회 쿼리 인덱스 최적화로 평균 조회 시간 75% 단축 (4~5분 → 1분)",
+        "Slack API 연동 실시간 알림 시스템으로 장애 대응 시간 단축",
+        "환경부 (4개월): 생활화학제품 중독 응급 대응 시스템 개발",
+        "RESTful API 설계 및 관리자 대시보드 개발, UI/UX 개선으로 작업 효율 20% 향상",
+        "Python + Selenium 기반 웹 서버 상태 자동 모니터링 시스템 구축",
+        "풀무원 (2개월): 동시 주문 시 주문번호 중복 생성 문제 트랜잭션 처리로 해결",
+        "주문 처리 프로세스 개선으로 주문 오류율 90% 감소, 고객 만족도 10% 상승",
+        "PHP CodeIgniter, Java Spring 기반 멀티 프로젝트 동시 관리 및 긴급 장애 대응"
+      ]
     },
     {
       date: "2021.12 ~ 2023.03 [1년 4개월]",
       title: "(주)웨인테크놀로지 - 웹 개발자",
       description:
-        "키움YES저축은행 등 금융권 웹 서비스 유지보수 및 신규 개발 (보안 강화 프로젝트). 외부 API 연동 (NICE 본인인증, KG이니시스 결제) 안정화 작업. ActiveX → 표준 웹 기술 전환 프로젝트 참여 (IE 11 → Chrome/Edge 마이그레이션). 보안 인증 페이지 개발 (SSL/TLS, SHA-256 해싱). 금융권 특성상 엄격한 코드 리뷰 및 보안 감사 대응 경험."
+        "키움YES저축은행 등 금융권 웹 서비스 유지보수 및 신규 개발. 외부 금융 API 연동 (신용정보/차량이력/세금 정보), API 캐싱+에러 핸들링으로 접속률 5% 향상. IE → Edge/Chrome 전환, 레거시 리팩토링으로 로딩 속도 40% 개선.",
+      details: [
+        "키움YES저축은행 (6개월): 외부 금융 API 연동 모듈 개발 및 안정화",
+        "신용정보 조회, 차량이력 조회, 세금 정보 연동 API 응답 캐싱 및 에러 핸들링",
+        "서비스 안정성 강화로 사용자 접속률 5% 향상",
+        "1원 송금 인증 시스템 개발 (다우기술 협업, 인증 모듈 담당)",
+        "Tibero 데이터베이스 환경에서 효율적인 쿼리 작성 및 성능 최적화",
+        "진영자산관리대부/삼호저축은행 (10개월): 브라우저 호환성 개선 (IE → Edge/Chrome)",
+        "레거시 코드 리팩토링 및 모던 웹 표준 적용으로 페이지 로딩 속도 40% 개선",
+        "REST API 기반 커뮤니케이션 시스템 연동으로 고객 불만 접수 건수 80% 감소",
+        "JavaScript 비동기 처리 패턴 적용으로 UI 반응성 향상",
+        "금융 보안 규정 준수한 안전한 시스템 구현 및 보안 감사 대응"
+      ]
     },
     {
-      date: "2021.08 ~ 2021.11 [빅데이터 플랫폼 개발자 과정(6개월)]",
+      date: "2021.08 ~ 2021.11 [빅데이터 플랫폼 개발자 과정]",
       title: "팀 프로젝트 - Stock Alphago (팀장)",
       description:
-        "강화학습(A2C) + 딥러닝(LSTM/Transformer) 기반 자동 주식 매매 시스템 개발 (팀장). GCP VM 인스턴스 개발 환경 구축, Selenium 기반 주식 데이터 크롤링 파이프라인 설계. 대신증권 API 실시간 데이터 수집 및 자동 매매 로직 구현. LSTM + Attention Mechanism 모델 정확도 A3C 대비 15% 향상. 데이터 전처리 속도 NumPy/Pandas 최적화로 3배 개선. 5명 팀원 역할 분담 및 주간 스프린트 운영."
+        "강화학습(A2C) + 딥러닝(LSTM/Transformer) 자동 주식 매매 시스템 개발 (팀장). GCP VM 환경 구축, Selenium 크롤링 파이프라인 설계. LSTM + Attention 모델 정확도 A3C 대비 15% 향상. NumPy/Pandas 최적화로 전처리 속도 3배 개선.",
+      details: [
+        "GCP VM 인스턴스 기반 개발 환경 구축 및 팀원 접근 권한 관리",
+        "Selenium 기반 주식 데이터 크롤링 파이프라인 설계 (일별/실시간)",
+        "대신증권 API 연동: 실시간 데이터 수집 및 자동 매매 로직 구현",
+        "LSTM + Attention Mechanism 모델 구현: A3C 대비 정확도 15% 향상",
+        "Transformer 기반 시계열 예측 모델 실험 및 하이퍼파라미터 튜닝",
+        "강화학습 A2C 알고리즘으로 buy/sell/hold 의사결정 자동화",
+        "NumPy/Pandas 벡터 연산 최적화로 데이터 전처리 속도 3배 개선",
+        "5명 팀원 역할 분담 (데이터/모델링/API/인프라/테스트) 및 주간 스프린트 운영",
+        "Git 브랜치 전략 수립 및 코드 리뷰 프로세스 정립"
+      ]
     }
   ],
 
