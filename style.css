@@ -72,8 +72,15 @@ body {
 }
 
 @keyframes shimmer {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .loading-bar {
@@ -92,7 +99,9 @@ body {
 }
 
 @keyframes loadProgress {
-    to { width: 100%; }
+    to {
+        width: 100%;
+    }
 }
 
 /* Animated Background */
@@ -110,7 +119,7 @@ body {
     position: absolute;
     width: 200%;
     height: 200%;
-    background: 
+    background:
         radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 40% 20%, rgba(196, 181, 253, 0.08) 0%, transparent 50%);
@@ -118,16 +127,26 @@ body {
 }
 
 @keyframes bgFloat {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(-5%, 5%) rotate(120deg); }
-    66% { transform: translate(5%, -5%) rotate(240deg); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(-5%, 5%) rotate(120deg);
+    }
+
+    66% {
+        transform: translate(5%, -5%) rotate(240deg);
+    }
 }
 
 .grid-overlay {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         linear-gradient(rgba(139, 92, 246, 0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
     background-size: 50px 50px;
@@ -135,8 +154,13 @@ body {
 }
 
 @keyframes gridMove {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+    }
 }
 
 /* Header */
@@ -309,8 +333,15 @@ nav a:hover::after {
 }
 
 @keyframes gradientFlow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .hero-subtitle {
@@ -388,8 +419,15 @@ nav a:hover::after {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
 }
 
 .scroll-indicator::after {
@@ -414,6 +452,63 @@ nav a:hover::after {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* Section Header with Download Button */
+.section-header {
+    position: relative;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.section-header .section-title {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.section-download-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: transparent;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.section-download-btn:hover {
+    opacity: 1;
+    color: var(--primary);
+    border-color: var(--primary);
+    background: var(--glass);
+}
+
+.section-download-btn i {
+    font-size: 0.875rem;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+    .section-header {
+        text-align: center;
+    }
+
+    .section-download-btn {
+        position: static;
+        transform: none;
+        margin-top: 1rem;
+        display: inline-flex;
+    }
 }
 
 .skills-grid {
@@ -846,6 +941,7 @@ nav a:hover::after {
     transition: all 0.3s ease;
     cursor: pointer;
     transform-style: preserve-3d;
+    min-height: 300px;
 }
 
 .timeline-content:hover {
@@ -858,7 +954,7 @@ nav a:hover::after {
 .timeline-card-inner {
     position: relative;
     width: 100%;
-    min-height: 200px;
+    height: 100%;
     transform-style: preserve-3d;
     transition: transform 0.6s;
 }
@@ -870,6 +966,7 @@ nav a:hover::after {
 .timeline-card-front,
 .timeline-card-back {
     width: 100%;
+    height: 100%;
     backface-visibility: hidden;
 }
 
@@ -878,7 +975,6 @@ nav a:hover::after {
     top: 0;
     left: 0;
     transform: rotateY(180deg);
-    max-height: 400px;
     overflow-y: auto;
     padding-right: 0.5rem;
 }
@@ -911,6 +1007,24 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.timeline-detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.timeline-detail-section:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-detail-subtitle {
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(167, 139, 250, 0.2);
 }
 
 .timeline-detail-list {
@@ -1197,14 +1311,14 @@ body.light-theme {
 }
 
 body.light-theme .bg-gradient {
-    background: 
+    background:
         radial-gradient(circle at 20% 50%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.06) 0%, transparent 50%),
         radial-gradient(circle at 40% 20%, rgba(196, 181, 253, 0.05) 0%, transparent 50%);
 }
 
 body.light-theme .grid-overlay {
-    background-image: 
+    background-image:
         linear-gradient(rgba(124, 58, 237, 0.06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(124, 58, 237, 0.06) 1px, transparent 1px);
 }

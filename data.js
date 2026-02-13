@@ -2,8 +2,8 @@
 window.PORTFOLIO_DATA = {
   // Contact 정보 (이메일 전송용)
   contact: {
-    email: "seunghwan94.dev@gmail.com",
-    emailService: "https://formspree.io/f/xanygqdj" // Formspree 무료 서비스 (변경 가능)
+    email: "sounghan94@gmail.com",
+    emailService: "https://formspree.io/f/mbdagkel" // Formspree 무료 서비스 (변경 가능)
   },
 
   // Hero 섹션
@@ -85,14 +85,14 @@ window.PORTFOLIO_DATA = {
         download: null
       }
     },
-    
+
     {
       title: "가구의집 <br>(House of Furniture)",
       description:
         "인테리어 소품 판매 + 커뮤니티 + 시공업체 매칭을 통합한 풀스택 이커머스 & 플랫폼 서비스",
       icon: "fas fa-couch",
       image: "./assets/img/hof.png",
-      techStack: ["Spring Boot(JPA/MyBatis/Security)", "AWS(EC2,S3,RDS)","React", "Docker", "Prometheus/Grafana","Swagger/Jacoco","GitHub Actions"],
+      techStack: ["Spring Boot(JPA/MyBatis/Security)", "AWS(EC2,S3,RDS)", "React", "Docker", "Prometheus/Grafana", "Swagger/Jacoco", "GitHub Actions"],
       details: {
         role: "팀장 / DevOps & Full Stack",
         duration: "2025.01.31 - 2025.03.06 [2개월]",
@@ -252,8 +252,6 @@ window.PORTFOLIO_DATA = {
   ],
 
   // 경력 부분 (위에서 아래)
-  // 경력 부분 (위에서 아래)
-  // 경력 부분 (위에서 아래)
   timeline: [
     {
       date: "2025.05 ~ 진행중",
@@ -275,11 +273,6 @@ window.PORTFOLIO_DATA = {
       title: "팀 프로젝트 - 가구의집 (팀장)",
       description:
         "Spring Boot + React 통합 인테리어 플랫폼 개발 (팀장). AWS 인프라 설계 ~ CI/CD 구축 ~ Prometheus/Grafana 모니터링 전 과정 주도. GitHub Actions 자동 배포로 배포 시간 90% 단축 (30분 → 3분). JaCoCo 테스트 커버리지 80%+ 달성.",
-      download: {
-        icon: "fas fa-file-pdf",
-        label: "수료증",
-        url: "./assets/data/더좋은아카데미_수료증(구로).pdf"
-      },
       details: [
         "React + Bootstrap SCSS, Axios, Debounce 기반 프론트엔드 개발",
         "Spring Boot: JPA + MyBatis 병행, Security(OAuth2/메일 인증), Swagger API 문서화",
@@ -315,22 +308,32 @@ window.PORTFOLIO_DATA = {
       title: "(주)메이크봇 - 웹 개발자",
       description:
         "대한항공/환경부/풀무원 등 공공·대기업 SI 프로젝트 유지보수 및 신규 개발. 세션 관리 개선으로 안정성 30% 향상. 로그 조회 쿼리 최적화로 조회 시간 75% 단축 (4~5분 → 1분). 주문 오류율 90% 감소.",
-      download: {
-        icon: "fas fa-file-word",
-        label: "경력증명서",
-        url: "./assets/data/seunghwan_work_experience.docx"
-      },
       details: [
-        "대한항공 (1년 1개월): iOS 백그라운드 WebSocket 연결 유지 메커니즘 구현",
-        "세션 관리 로직 개선 및 통신 재연결 로직으로 시스템 안정성 30% 향상",
-        "로그 데이터 조회 쿼리 인덱스 최적화로 평균 조회 시간 75% 단축 (4~5분 → 1분)",
-        "Slack API 연동 실시간 알림 시스템으로 장애 대응 시간 단축",
-        "환경부 (4개월): 생활화학제품 중독 응급 대응 시스템 개발",
-        "RESTful API 설계 및 관리자 대시보드 개발, UI/UX 개선으로 작업 효율 20% 향상",
-        "Python + Selenium 기반 웹 서버 상태 자동 모니터링 시스템 구축",
-        "풀무원 (2개월): 동시 주문 시 주문번호 중복 생성 문제 트랜잭션 처리로 해결",
-        "주문 처리 프로세스 개선으로 주문 오류율 90% 감소, 고객 만족도 10% 상승",
-        "PHP CodeIgniter, Java Spring 기반 멀티 프로젝트 동시 관리 및 긴급 장애 대응"
+        {
+          subtitle: "대한항공 (1년 1개월)",
+          items: [
+            "iOS 백그라운드 WebSocket 연결 유지 메커니즘 구현",
+            "세션 관리 로직 개선 및 통신 재연결 로직으로 시스템 안정성 30% 향상",
+            "로그 데이터 조회 쿼리 인덱스 최적화로 평균 조회 시간 75% 단축 (4~5분 → 1분)",
+            "Slack API 연동 실시간 알림 시스템으로 장애 대응 시간 단축"
+          ]
+        },
+        {
+          subtitle: "환경부 (4개월)",
+          items: [
+            "생활화학제품 중독 응급 대응 시스템 개발",
+            "RESTful API 설계 및 관리자 대시보드 개발, UI/UX 개선으로 작업 효율 20% 향상",
+            "Python + Selenium 기반 웹 서버 상태 자동 모니터링 시스템 구축"
+          ]
+        },
+        {
+          subtitle: "풀무원 (2개월)",
+          items: [
+            "동시 주문 시 주문번호 중복 생성 문제 트랜잭션 처리로 해결",
+            "주문 처리 프로세스 개선으로 주문 오류율 90% 감소, 고객 만족도 10% 상승",
+            "PHP CodeIgniter, Java Spring 기반 멀티 프로젝트 동시 관리 및 긴급 장애 대응"
+          ]
+        }
       ]
     },
     {
@@ -339,16 +342,26 @@ window.PORTFOLIO_DATA = {
       description:
         "키움YES저축은행 등 금융권 웹 서비스 유지보수 및 신규 개발. 외부 금융 API 연동 (신용정보/차량이력/세금 정보), API 캐싱+에러 핸들링으로 접속률 5% 향상. IE → Edge/Chrome 전환, 레거시 리팩토링으로 로딩 속도 40% 개선.",
       details: [
-        "키움YES저축은행 (6개월): 외부 금융 API 연동 모듈 개발 및 안정화",
-        "신용정보 조회, 차량이력 조회, 세금 정보 연동 API 응답 캐싱 및 에러 핸들링",
-        "서비스 안정성 강화로 사용자 접속률 5% 향상",
-        "1원 송금 인증 시스템 개발 (다우기술 협업, 인증 모듈 담당)",
-        "Tibero 데이터베이스 환경에서 효율적인 쿼리 작성 및 성능 최적화",
-        "진영자산관리대부/삼호저축은행 (10개월): 브라우저 호환성 개선 (IE → Edge/Chrome)",
-        "레거시 코드 리팩토링 및 모던 웹 표준 적용으로 페이지 로딩 속도 40% 개선",
-        "REST API 기반 커뮤니케이션 시스템 연동으로 고객 불만 접수 건수 80% 감소",
-        "JavaScript 비동기 처리 패턴 적용으로 UI 반응성 향상",
-        "금융 보안 규정 준수한 안전한 시스템 구현 및 보안 감사 대응"
+        {
+          subtitle: "키움YES저축은행 (6개월)",
+          items: [
+            "외부 금융 API 연동 모듈 개발 및 안정화",
+            "신용정보 조회, 차량이력 조회, 세금 정보 연동 API 응답 캐싱 및 에러 핸들링",
+            "서비스 안정성 강화로 사용자 접속률 5% 향상",
+            "1원 송금 인증 시스템 개발 (다우기술 협업, 인증 모듈 담당)",
+            "Tibero 데이터베이스 환경에서 효율적인 쿼리 작성 및 성능 최적화"
+          ]
+        },
+        {
+          subtitle: "진영자산관리대부/삼호저축은행 (10개월)",
+          items: [
+            "브라우저 호환성 개선 (IE → Edge/Chrome)",
+            "레거시 코드 리팩토링 및 모던 웹 표준 적용으로 페이지 로딩 속도 40% 개선",
+            "REST API 기반 커뮤니케이션 시스템 연동으로 고객 불만 접수 건수 80% 감소",
+            "JavaScript 비동기 처리 패턴 적용으로 UI 반응성 향상",
+            "금융 보안 규정 준수한 안전한 시스템 구현 및 보안 감사 대응"
+          ]
+        }
       ]
     },
     {
@@ -402,10 +415,10 @@ window.PORTFOLIO_DATA = {
       },
       {
         icon: "fas fa-envelope",
-        url: "mailto:seunghwan94.dev@gmail.com",
+        url: "mailto:sounghan94@gmail.com",
         label: "Email"
       }
     ]
   },
-  
+
 };

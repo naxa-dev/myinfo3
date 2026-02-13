@@ -1,11 +1,11 @@
 // ===== DATA FROM data.js =====
-const { 
+const {
   contact: contactData,
   hero: heroData,
   footer: footerData,
-  skills: skillsData, 
-  projects: projectsData, 
-  timeline: timelineData 
+  skills: skillsData,
+  projects: projectsData,
+  timeline: timelineData
 } = window.PORTFOLIO_DATA;
 
 // ===== INITIALIZATION FUNCTIONS =====
@@ -94,9 +94,9 @@ function loadProjects() {
       <div class="card-face card-front">
         <div class="project-image">
           ${project.image
-            ? `<img src="${project.image}" alt="${project.title}">`
-            : `<i class="${project.icon}"></i>`
-          }
+        ? `<img src="${project.image}" alt="${project.title}">`
+        : `<i class="${project.icon}"></i>`
+      }
         </div>
         <div class="card-content">
           <h3 class="project-title">${project.title}</h3>
@@ -148,23 +148,23 @@ function loadProjects() {
 
         <div class="project-links">
           ${project.links.github
-            ? `<a href="${project.links.github}" target="_blank" class="project-link secondary">
+        ? `<a href="${project.links.github}" target="_blank" class="project-link secondary">
                 <i class="fab fa-github"></i> GitHub
               </a>`
-            : ''
-          }
+        : ''
+      }
           ${project.links.demo
-            ? `<a href="${project.links.demo}" target="_blank" class="project-link">
+        ? `<a href="${project.links.demo}" target="_blank" class="project-link">
                 <i class="fas fa-external-link-alt"></i> Demo
               </a>`
-            : ''
-          }
+        : ''
+      }
           ${project.links.download
-            ? `<a href="${project.links.download}" download class="project-link secondary">
+        ? `<a href="${project.links.download}" download class="project-link secondary">
                 <i class="fas fa-download"></i> Download
               </a>`
-            : ''
-          }
+        : ''
+      }
         </div>
       </div>
     `;
@@ -215,11 +215,7 @@ function loadTimeline() {
                 <i class="fas fa-list-check"></i>
                 주요 업무 및 성과
               </h3>
-              <ul class="timeline-detail-list">
-                ${item.details.map(detail => `
-                  <li class="timeline-detail-item">${detail}</li>
-                `).join('')}
-              </ul>
+              ${renderDetails(item.details)}
               ${item.download ? `
                 <a href="${item.download.url}" download class="timeline-download" onclick="event.stopPropagation()" style="margin-top: 1rem;">
                   <i class="${item.download.icon}"></i>
@@ -237,6 +233,34 @@ function loadTimeline() {
       <div class="timeline-dot"></div>
     </div>
   `).join('');
+}
+
+// Helper function to render details (supports both array and object structure)
+function renderDetails(details) {
+  if (!details || details.length === 0) return '';
+
+  // Check if details is an array of objects with subtitle
+  if (typeof details[0] === 'object' && details[0].subtitle) {
+    return details.map(section => `
+      <div class="timeline-detail-section">
+        <h4 class="timeline-detail-subtitle">${section.subtitle}</h4>
+        <ul class="timeline-detail-list">
+          ${section.items.map(item => `
+            <li class="timeline-detail-item">${item}</li>
+          `).join('')}
+        </ul>
+      </div>
+    `).join('');
+  }
+
+  // Fallback to simple list for string arrays
+  return `
+    <ul class="timeline-detail-list">
+      ${details.map(detail => `
+        <li class="timeline-detail-item">${detail}</li>
+      `).join('')}
+    </ul>
+  `;
 }
 
 // ===== CAROUSEL FUNCTIONS =====
@@ -325,60 +349,75 @@ function toggleTheme() {
   icon.className = document.body.classList.contains('light-theme') ? 'fas fa-sun' : 'fas fa-moon';
 }
 
-function handleSubmit(e) {
-  e.preventDefault();
-  
-  const form = e.target;
+async function handleSubmit(event) {
+  event.preventDefault();
+
+  const form = event.target;
   const submitBtn = form.querySelector('.submit-btn');
   const originalBtnText = submitBtn.innerHTML;
-  
+
   // 버튼 로딩 상태
   submitBtn.disabled = true;
   submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 전송 중...';
-  
-  // FormData 생성
-  const formData = new FormData(form);
-  
-  // Formspree 또는 다른 이메일 서비스로 전송
-  fetch(contactData.emailService, {
-    method: 'POST',
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
+
+  const data = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
     if (response.ok) {
       // 성공
       submitBtn.innerHTML = '<i class="fas fa-check"></i> 전송 완료!';
       submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-      
+
       setTimeout(() => {
         form.reset();
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnText;
         submitBtn.style.background = '';
       }, 3000);
-      
+
       alert("메시지가 성공적으로 전송되었습니다! 🚀\n빠른 시일 내에 답변드리겠습니다.");
     } else {
-      throw new Error('전송 실패');
+      // 실패 - Formspree 에러 메시지 표시
+      const errorData = await response.json();
+      let errorMessage = '전송 실패';
+
+      if (errorData.errors) {
+        errorMessage = errorData.errors.map(error => error.message).join(", ");
+      }
+
+      submitBtn.innerHTML = '<i class="fas fa-times"></i> ' + errorMessage;
+      submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.style.background = '';
+      }, 3000);
+
+      alert("메시지 전송에 실패했습니다. 😢\n" + contactData.email + "로 직접 연락 부탁드립니다.");
     }
-  })
-  .catch(error => {
-    // 실패
+  } catch (error) {
+    // 네트워크 에러
     console.error('Error:', error);
     submitBtn.innerHTML = '<i class="fas fa-times"></i> 전송 실패';
     submitBtn.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-    
+
     setTimeout(() => {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnText;
       submitBtn.style.background = '';
     }, 3000);
-    
+
     alert("메시지 전송에 실패했습니다. 😢\n" + contactData.email + "로 직접 연락 부탁드립니다.");
-  });
+  }
 }
 
 // Scroll Animations
@@ -424,6 +463,12 @@ window.addEventListener('DOMContentLoaded', () => {
   loadProjects();
   loadTimeline();
   loadFooter();
+
+  // Contact form submit handler
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', handleSubmit);
+  }
 });
 
 // 윈도우 리사이즈 시 카루셀 재로드

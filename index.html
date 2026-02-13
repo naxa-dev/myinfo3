@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
@@ -11,7 +12,9 @@
   <!-- 한글 지원 폰트 추가 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -99,7 +102,13 @@
 
   <!-- Timeline Section -->
   <section class="timeline-section fade-in" id="timeline">
-    <h2 class="section-title">Experience Timeline</h2>
+    <div class="section-header">
+      <h2 class="section-title">Experience Timeline</h2>
+      <a href="./assets/data/seunghwan_work_experience.docx" download class="section-download-btn">
+        <i class="fas fa-file-word"></i>
+        경력증명서 다운로드
+      </a>
+    </div>
     <div class="timeline" id="timelineContainer"></div>
   </section>
 
@@ -107,7 +116,7 @@
   <section class="contact-section fade-in" id="contact">
     <h2 class="section-title">Get In Touch</h2>
     <div class="contact-container">
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/mbdagkel" method="POST">
         <div class="form-group">
           <label class="form-label">Name</label>
           <input type="text" name="name" class="form-input" required />
@@ -136,7 +145,7 @@
           <div class="footer-logo">Portfolio</div>
           <p class="footer-tagline"><!-- Loaded from data.js --></p>
         </div>
-        
+
         <!-- Social Links -->
         <div class="social-links">
           <!-- Loaded from data.js -->
@@ -161,4 +170,5 @@
   <!-- 메인 스크립트 -->
   <script src="script.js"></script>
 </body>
+
 </html>
