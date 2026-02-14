@@ -1,17 +1,25 @@
-# Portfolio Data 설정 가이드
+# MyInfo3
 
-이 포트폴리오는 **data.js** 파일을 수정하여 모든 콘텐츠를 쉽게 관리할 수 있도록 설계되었습니다.
+**data.js** 파일을 수정하여 모든 콘텐츠를 쉽게 관리할 수 있도록 설계되었습니다.
 
----
+## 참고 이미지
+
+<img width="30%" alt="image" src="https://github.com/user-attachments/assets/f9b7d874-256c-432b-8d17-b4e3b5422cc7" />
+<img width="30%" alt="image" src="https://github.com/user-attachments/assets/b7955193-4fd4-4d8a-bec8-f079d991403b" />
+<img width="30%" alt="image" src="https://github.com/user-attachments/assets/e5449331-d17b-410c-b6f0-293cc063aebc" />
+<img width="30%" alt="image" src="https://github.com/user-attachments/assets/000c9ec0-da9b-4640-842e-38c517fb82ba" />
+<img width="30%" alt="image" src="https://github.com/user-attachments/assets/127df752-88ee-46dd-a16d-adf7edab091d" />
+<img width="30%" alt="image" src="https://github.com/user-attachments/assets/9f6f4ff7-fc09-4537-bdc7-2e7615370c7a" />
+
 
 ## 📂 파일 구조
 
 ```
 pro/
-├── index.html          # 메인 HTML (직접 수정 불필요)
-├── style.css           # 스타일시트 (직접 수정 불필요)
-├── script.js           # 스크립트 (직접 수정 불필요)
-├── data.js            # ⭐ 포트폴리오 데이터 (여기만 수정)
+├── index.html         # 메인 HTML (직접 수정 불필요)
+├── style.css          # 스타일시트 (직접 수정 불필요)
+├── script.js          # 스크립트 (직접 수정 불필요)
+├── data.js            #  포트폴리오 데이터 (여기만 수정)
 └── assets/
     ├── img/           # 프로젝트 이미지
     └── data/          # 다운로드 파일 (PDF, DOCX 등)
@@ -19,9 +27,9 @@ pro/
 
 ---
 
-## 📝 data.js 구조
+## email 등록 
 
-### 1️⃣ Contact 정보
+> https://formspree.io/ 로그인 및 도메인 등록해야 사용 가능
 
 ```javascript
 contact: {
@@ -30,249 +38,9 @@ contact: {
 }
 ```
 
----
-
-### 2️⃣ Hero 섹션
-
-```javascript
-hero: {
-  title: "꾸준히 성장하는 개발자",
-  subtitle: "책임감을 가지고 주체적으로 일하는 개발자 이승환입니다",
-  name: "이승환"
-}
-```
-
----
-
-### 3️⃣ Skills (기술 스택)
-
-```javascript
-skills: [
-  {
-    icon: "fas fa-server",              // Font Awesome 아이콘
-    name: "Backend Development",        // 기술 이름
-    description: "Java(Spring Boot)...", // 기술 설명
-    progress: 75                        // 숙련도 (0-100)
-  },
-  // ...
-]
-```
-
-**Font Awesome 아이콘 찾기**: https://fontawesome.com/icons
-
----
-
-### 4️⃣ Projects (프로젝트)
-
-```javascript
-projects: [
-  {
-    title: "프로젝트 이름",
-    description: "프로젝트 설명",
-    icon: "fas fa-folder-open",        // 아이콘 (이미지 없을 때)
-    image: "./assets/img/project.png", // 프로젝트 이미지 (선택사항)
-    techStack: ["React", "Node.js"],   // 기술 스택 배열
-    
-    details: {                         // 프로젝트 상세 정보
-      role: "팀장 / Full Stack",
-      duration: "2025.01 - 2025.03 [2개월]",
-      team: "3명",
-      status: "완료"
-    },
-    
-    stats: {                           // 통계 정보 (카드 뒷면)
-      CI_CD: "GitHub Actions",
-      모니터링: "Prometheus"
-    },
-    
-    features: [                        // 주요 기능 목록
-      "기능 1 설명",
-      "기능 2 설명"
-    ],
-    
-    links: {                           // 링크
-      github: "https://github.com/...",
-      demo: "https://demo.com",
-      download: "./assets/data/file.pdf"  // null이면 버튼 안보임
-    }
-  }
-]
-```
-
----
-
-### 5️⃣ Timeline (경력)
-
-#### 기본 구조
-
-```javascript
-timeline: [
-  {
-    date: "2025.05 ~ 진행중",
-    title: "(주)회사명 - 직책",
-    description: "경력 요약 설명...",
-    
-    details: [...]  // 상세 경력 (아래 설명 참조)
-  }
-]
-```
-
-#### Details - 방식 1: 단순 리스트
-
-```javascript
-details: [
-  "업무 1 설명",
-  "업무 2 설명",
-  "업무 3 설명"
-]
-```
-
-#### Details - 방식 2: 서브 타이틀 그룹화 (권장)
-
-프로젝트별로 경력을 구분하고 싶을 때 사용:
-
-```javascript
-details: [
-  {
-    subtitle: "프로젝트 A (6개월)",
-    items: [
-      "업무 1 설명",
-      "업무 2 설명"
-    ]
-  },
-  {
-    subtitle: "프로젝트 B (1년)",
-    items: [
-      "업무 1 설명",
-      "업무 2 설명"
-    ]
-  }
-]
-```
-
-**사용 예시** (메이크봇 경력):
-```javascript
-details: [
-  {
-    subtitle: "대한항공 (1년 1개월)",
-    items: [
-      "iOS 백그라운드 WebSocket 연결 유지 메커니즘 구현",
-      "세션 관리 로직 개선..."
-    ]
-  },
-  {
-    subtitle: "환경부 (4개월)",
-    items: [
-      "생활화학제품 중독 응급 대응 시스템 개발",
-      "RESTful API 설계..."
-    ]
-  }
-]
-```
-
----
-
-### 6️⃣ Footer 정보
-
-```javascript
-footer: {
-  name: "Seunghwan Lee",
-  tagline: "꾸준히 성장하는 개발자",
-  social: [
-    {
-      icon: "fab fa-github",
-      url: "https://github.com/seunghwan94",
-      label: "GitHub"
-    },
-    // ...
-  ]
-}
-```
-
----
-
-## 🎨 이미지 추가하기
-
-### 프로젝트 이미지
-
-1. `assets/img/` 폴더에 이미지 저장 (PNG, JPG)
-2. data.js에서 경로 지정:
-   ```javascript
-   image: "./assets/img/my_project.png"
-   ```
-
 ### 아이콘 vs 이미지
 
 - `image` 속성이 있으면 → 이미지 표시
 - `image`가 `null`이면 → `icon` 속성의 Font Awesome 아이콘 표시
 
----
-
-## 📥 다운로드 파일 추가하기
-
-### 파일 저장 위치
-
-`assets/data/` 폴더에 PDF, DOCX, PPT 등 저장
-
-### Timeline 경력증명서
-
-Timeline 섹션 오른쪽 위에 **통합 다운로드 버튼** 자동 표시:
-- 파일: `assets/data/seunghwan_work_experience.docx`
-- 개별 timeline 항목의 `download` 불필요 (자동으로 섹션 헤더에 표시)
-
-### 프로젝트 다운로드 링크
-
-```javascript
-links: {
-  download: "./assets/data/project_presentation.pdf"
-}
-```
-
----
-
-## 🔧 자주 묻는 질문 (FAQ)
-
-### Q1. 프로젝트 순서를 바꾸고 싶어요
-**A**: `data.js`의 `projects` 배열에서 항목 순서를 변경하세요.
-
-### Q2. 기술 스택 숙련도(`progress`)는 어떻게 정하나요?
-**A**: 0~100 사이의 숫자로 입력하세요. 예: `70`은 70%를 의미합니다.
-
-### Q3. 이미지가 안보여요
-**A**: 
-- 경로가 올바른지 확인 (`./assets/img/파일명.png`)
-- 이미지 파일이 실제로 존재하는지 확인
-- 대소문자 구분 확인
-
-### Q4. 경력 상세보기가 너무 길어요
-**A**: 
-- 서브 타이틀 그룹화 사용 (방식 2)
-- 카드 뒷면은 자동 스크롤 지원
-- 핵심 업무만 간결하게 작성 권장
-
-### Q5. 다크/라이트 테마를 변경하고 싶어요
-**A**: 우측 하단의 테마 토글 버튼 (🌙/☀️) 클릭
-
----
-
-## 💡 팁
-
-1. **간결하게 작성**: description은 2-3줄, details는 핵심만
-2. **숫자로 성과 강조**: "처리 속도 75% 향상" 같은 정량적 지표
-3. **키워드 활용**: 기술 스택 이름을 정확하게 (검색 최적화)
-4. **링크 확인**: 배포 전 모든 링크(GitHub, Demo) 동작 확인
-
----
-
-## 🚀 배포하기
-
-1. `data.js` 수정 완료
-2. 브라우저에서 `index.html` 열어 확인
-3. GitHub Pages / Vercel / Netlify 등으로 배포
-
----
-
-## 📞 문의
-
-궁금한 점이 있으면 이메일로 연락주세요!
-📧 seunghwan94.dev@gmail.com
+> **Font Awesome 아이콘 찾기**: https://fontawesome.com/icons
